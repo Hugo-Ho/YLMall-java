@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.Hugo.goods.mapper.CategoryMapper">
+    <!-- 根据第三方商品ID跟来源查询商品信息 -->
+    <select id="queryCategoryListByParentId" parameterType="java.lang.Long" resultType="com.Hugo.goods.pojo.Category">
+        SELECT *
+        FROM tb_category
+        WHERE parent_id = #{pid}
+    </select>
+
+    <select id="queryCategoryListByCategoryIds" parameterType="java.util.List" resultType="com.Hugo.goods.pojo.Category">
+        SELECT id,name,parent_id
+        FROM tb_category
+        WHERE id
+        in
+        <foreach collection="categoryIds" item="categoryId" open="(" close=")" separator=",">
+             #{categoryId}
+        </foreach>
+
+    </select>
+</mapper>

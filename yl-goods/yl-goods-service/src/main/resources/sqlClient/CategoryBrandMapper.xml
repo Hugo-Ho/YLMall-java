@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.Hugo.goods.mapper.CategoryBrandMapper">
+    <!-- 根据第三方商品ID跟来源查询商品信息 -->
+    <select id="insertCategoryBrand">
+        insert into tb_category_brand (category_id,brand_id)
+        value
+        <foreach collection="categoryIds" item="categoryId" separator=","
+                 >
+            (#{categoryId},#{brandId})
+        </foreach>
+    </select>
+
+    <select id="queryCategoryIdsByBarandId" resultType="Long">
+        select category_id from tb_category_brand
+        where brand_id=#{brandId}
+    </select>
+</mapper>

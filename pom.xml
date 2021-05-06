@@ -11,6 +11,10 @@
         <module>yl-registry</module>
         <module>yl-api-gateway</module>
         <module>yl-goods</module>
+        <module>yl-common</module>
+        <module>yl-upload</module>
+        <module>yl-upload</module>
+        <module>yl-upload</module>
     </modules>
     <packaging>pom</packaging>
 

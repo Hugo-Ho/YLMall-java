@@ -4,19 +4,33 @@ spring:
   application:
     name: goods-service
   datasource:
-    url: jdbc:mysql://localhost:3306/goods
+    url: jdbc:mysql://202.135.136.218:30147/yl
     username: root
-    password: 123
+    password: isp0000
     hikari:
       maximun-pool-size: 30
       minimum-idle: 10
+    servlet:
+      multipart:
+        max-file-size: 5MB # 限制文件上传的大小
 eureka:
   client:
     service-url:
       defaultZone: http://127.0.0.1:10086/eureka
   instance:
     lease-renewal-interval-in-seconds: 5 # 每隔5秒发送一次心跳
-    lease-expiration-duration-in-seconds: 1- # 10秒不发送就过期
+    lease-expiration-duration-in-seconds: 10 # 10秒不发送就过期
     prefer-ip-address: true
     ip-address: 127.0.0.1
     instance-id: ${spring.application.name}:${server.port}
+mybatis:
+  mapper-locations: classpath:sqlClient/*.xml
+  type-aliases-package: com.Hugo.goods.mapper
+fdfs:
+  so-timeout: 1501
+  connect-timeout: 601
+  thumb-image: #缩略图
+    width: 60
+    height: 60
+  tracker-list: #tracker地址
+    - 202.135.136.197:22122

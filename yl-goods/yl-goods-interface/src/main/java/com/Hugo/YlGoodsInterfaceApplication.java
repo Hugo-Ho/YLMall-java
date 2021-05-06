@@ -5,12 +5,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 
+import javax.swing.*;
 @SpringBootApplication
 @EnableEurekaClient
 @EnableZuulProxy
-public class LyApiGatewayApplication {
+public class YlGoodsInterfaceApplication {
     public static void main(String[] args)
     {
-        SpringApplication.run(LyApiGatewayApplication.class,args);
+        SpringApplication.run(YlGoodsInterfaceApplication.class,args);
     }
 }
